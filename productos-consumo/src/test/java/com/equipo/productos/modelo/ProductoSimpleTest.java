@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.math.BigDecimal;
 
 /**
- * Pruebas unitarias para la clase ProductoSimple.
  * Verifica que los constructores y validaciones funcionen correctamente.
  */
 @DisplayName("ProductoSimple")

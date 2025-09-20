@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.math.BigDecimal;
 
 /**
- * Pruebas unitarias para la clase ReglaDescuentoFijo.
  * Verifica que la regla de descuento fijo funcione correctamente
  * en diferentes escenarios.
  */

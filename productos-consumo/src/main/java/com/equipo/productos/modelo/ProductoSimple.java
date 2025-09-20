@@ -3,35 +3,15 @@ package com.equipo.productos.modelo;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-/**
- * Implementación mínima de la interfaz Producto.
- * Es un POJO (Plain Old Java Object) que contiene las validaciones básicas
- * necesarias para garantizar la integridad de los datos del producto.
- */
 public class ProductoSimple implements Producto {
     
     private final String nombre;
     private final BigDecimal precioBase;
-    
-    /**
-     * Constructor que crea un producto con validaciones.
-     * 
-     * @param nombre el nombre del producto, no puede ser null ni vacío
-     * @param precioBase el precio base del producto, debe ser mayor que cero
-     * @throws IllegalArgumentException si algún parámetro no cumple las validaciones
-     */
+
     public ProductoSimple(String nombre, BigDecimal precioBase) {
         this.nombre = validarNombre(nombre);
         this.precioBase = validarPrecioBase(precioBase);
     }
-    
-    /**
-     * Constructor alternativo que acepta el precio como double por conveniencia.
-     * 
-     * @param nombre el nombre del producto, no puede ser null ni vacío
-     * @param precioBase el precio base del producto como double, debe ser mayor que cero
-     * @throws IllegalArgumentException si algún parámetro no cumple las validaciones
-     */
     public ProductoSimple(String nombre, double precioBase) {
         this(nombre, BigDecimal.valueOf(precioBase));
     }
@@ -45,14 +25,7 @@ public class ProductoSimple implements Producto {
     public BigDecimal getPrecioBase() {
         return precioBase;
     }
-    
-    /**
-     * Valida que el nombre del producto sea válido.
-     * 
-     * @param nombre el nombre a validar
-     * @return el nombre si es válido
-     * @throws IllegalArgumentException si el nombre es null, vacío o solo contiene espacios
-     */
+
     private String validarNombre(String nombre) {
         if (nombre == null) {
             throw new IllegalArgumentException("El nombre del producto no puede ser null");
@@ -62,14 +35,6 @@ public class ProductoSimple implements Producto {
         }
         return nombre.trim();
     }
-    
-    /**
-     * Valida que el precio base sea válido.
-     * 
-     * @param precio el precio a validar
-     * @return el precio si es válido
-     * @throws IllegalArgumentException si el precio es null, negativo o cero
-     */
     private BigDecimal validarPrecioBase(BigDecimal precio) {
         if (precio == null) {
             throw new IllegalArgumentException("El precio base no puede ser null");
