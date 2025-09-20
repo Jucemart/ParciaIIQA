@@ -2,6 +2,7 @@ package com.equipo.productos.reglas;
 
 import com.equipo.productos.modelo.Producto;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
  * Implementación de regla de precio que aplica un descuento fijo por unidad.
@@ -92,6 +93,19 @@ public class ReglaDescuentoFijo implements ReglaPrecio {
         if (cantidad <= 0) {
             throw new IllegalArgumentException("La cantidad debe ser mayor que cero");
         }
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        ReglaDescuentoFijo that = (ReglaDescuentoFijo) obj;
+        return Objects.equals(descuentoPorUnidad, that.descuentoPorUnidad);
+    }
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(descuentoPorUnidad);
     }
     
     @Override
